@@ -25,6 +25,7 @@
 import csv
 import itertools
 import sys
+import os
 
 
 
@@ -68,6 +69,7 @@ def write_endmill(row):
     bit_file.write("  }\n")
     bit_file.write("}\n")
     bit_file.close()
+    return bit_file_name
 
 def write_ballend(row):
     ''' The function write_ballend writes an ballend JSON file
@@ -92,7 +94,7 @@ def write_ballend(row):
     bit_file.write("  }\n")
     bit_file.write("}\n")
     bit_file.close()
-
+    return bit_file_name
 
 def write_v_bit(row):
     ''' The function write_v_bit writes an Vbit JSON file
@@ -118,32 +120,82 @@ def write_v_bit(row):
     bit_file.write("  }\n")
     bit_file.write("}\n")
     bit_file.close()
+    return bit_file_name
 
-
-def make_toolbit(csv_file_path):
+def make_toolbit_kit(lib_name,csv_file_path):
     ''' The function make_toolbit takes in a filename for a CSV file describing
     tool bits. It parses each row a a single toolbit, writing each toolbit to a
     JSON file
     '''
+    # lets create and set our directory structure
+    path=os.getcwd()
+    os_sep=os.sep
+    tool_bits_path=path + os_sep + "ToolBits"
+    bit_path=tool_bits_path + os_sep + "Bit"
+    library_path=tool_bits_path +os_sep + "Library"
+    shape_path=tool_bits_path + os_sep + "Shape"
+
+    if not os.path.exists(tool_bits_path):
+        os.makedirs(tool_bits_path)
+    if not os.path.exists(bit_path):
+        os.makedirs(bit_path)
+    if not os.path.exists(library_path):
+        os.makedirs(library_path)
+    if not os.path.exists(shape_path):
+        os.makedirs(shape_path)
+
+    # create empty list of bit names
+    bit_name_list=[]
+
+    os.chdir(bit_path)
+
     with open(csv_file_path,  mode="r") as csv_file:
         # reading the csv file using DictReader,
         # get rid of case sensitive column names
-        csv_reader = csv.DictReader(lower_first_line(csv_file)) 
-
+        csv_reader = csv.DictReader(lower_first_line(csv_file))
+        
+        # Process the tool bits
         for row in csv_reader:
+            bit_file_name="null"
             # Map some names to standard names            
             row=row_clean_up(row)
             shape=row['shape'].lower()
             if shape == "endmill":
-                write_endmill(row)
+                bit_file_name=write_endmill(row)
             elif shape == "ballend":
-                write_ballend(row)
+                bit_file_name=write_ballend(row)
             elif shape == "v-bit":
-                write_v_bit(row)
+                bit_file_name=write_v_bit(row)
             else:
                 print("Unable to process:\n")
                 print(row)
                 print("\n\n")
+
+            if bit_file_name != "null":
+                bit_name_list.append(bit_file_name)
+
+    # Create the library        
+    os.chdir(library_path)
+    library_file_name=lib_name + ".ftcb"
+    lib_file = open(library_file_name,  mode="w", encoding="utf-8")
+    lib_file.write("{\n")
+    lib_file.write("  \"tools\": [\n")
+        
+    num_bits_written=len(bit_name_list)
+    elem_num=1
+    for bit_name in bit_name_list:
+        lib_file.write("    {\n")
+        lib_file.write("      \"nr=\":" + str(elem_num) + ",\n")
+        lib_file.write("      \"path=\": \"" + bit_name + "\"\n")
+        if elem_num < num_bits_written:
+            lib_file.write("    },\n")
+        else:
+            lib_file.write("    }\n")
+        elem_num=elem_num + 1
+
+    lib_file.write("  ],\n")
+    lib_file.write("  \"version\": 1\n")
+    lib_file.close
 
 # Driver Code
 ''' This application reads a CSV file containing tool bit information for the 
@@ -155,17 +207,20 @@ Each row defines a single bit and will create a single JSON file.
 # For command line operation, un-comment "command line block"
 # Start command line block
 
-if len(sys.argv) != 2 :
-    print("usage: python python create_freecad_bit.py file_name.csv")
-    print("where file_name.csv is the name of the file to be converted")
-    sys.exit()
-csv_file_path = sys.argv[1]
+#if len(sys.argv) != 2 :
+#    print("usage: python python create_freecad_bit.py file_name.csv")
+#    print("where file_name.csv is the name of the file to be converted")
+#    sys.exit()
+#csv_file_path = sys.argv[1]
 
 # End command line block
 
 
+lib_name="Whiteside"
 
-#csv_file_path="test2.csv"
+lcl_path=os.getcwd()
+os_sep=os.sep
+csv_file_path=lcl_path + os_sep + "test" + os_sep + "test2.csv"
 
 # Call the make_toolbit function
-make_toolbit(csv_file_path)
+make_toolbit_kit(lib_name,csv_file_path)
