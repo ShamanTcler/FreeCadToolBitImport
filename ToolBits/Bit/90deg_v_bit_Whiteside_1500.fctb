@@ -1,0 +1,18 @@
+{
+  "version": 2,
+  "name": "90 deg v-bit Whiteside 1500",
+  "shape": "v-bit.fcstd",
+  "parameter": {
+    "Chipload": "0.003 in",
+    "CuttingEdgeHeight": "0.125 in ",
+    "CuttingEdgeAngle": "90 \u00b0",
+    "Diameter": "0.25 in ",
+    "Flutes": "2",
+    "Length": "1.5 in ",
+    "Material": "HSS",
+    "ShankDiameter": "0.25 in "
+  },
+  "attribute": {
+    "vendor": "Whiteside"
+  }
+}

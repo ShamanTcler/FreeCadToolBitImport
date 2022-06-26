@@ -1,0 +1,53 @@
+{
+  "tools": [
+    {
+      "nr": 1,
+      "path": "zero_pt125_endmill_Whiteside_RU1600.fctb"
+    },
+    {
+      "nr": 2,
+      "path": "zero_pt1875_endmill_Whiteside_RU1800.fctb"
+    },
+    {
+      "nr": 3,
+      "path": "zero_pt25_endmill_Whiteside_RU2075.fctb"
+    },
+    {
+      "nr": 4,
+      "path": "zero_pt125_endmill_Whiteside_RD1600.fctb"
+    },
+    {
+      "nr": 5,
+      "path": "zero_pt1875_endmill_Whiteside_RD1800.fctb"
+    },
+    {
+      "nr": 6,
+      "path": "zero_pt25_endmill_Whiteside_RD2075.fctb"
+    },
+    {
+      "nr": 7,
+      "path": "zero_pt1875_ballend_Whiteside_RU1800RN.fctb"
+    },
+    {
+      "nr": 8,
+      "path": "zero_pt25_ballend_Whiteside_RU2075RN.fctb"
+    },
+    {
+      "nr": 9,
+      "path": "90deg_v_bit_Whiteside_1500.fctb"
+    },
+    {
+      "nr": 10,
+      "path": "90deg_v_bit_Whiteside_1502.fctb"
+    },
+    {
+      "nr": 11,
+      "path": "60deg_v_bit_Whiteside_1541.fctb"
+    },
+    {
+      "nr": 12,
+      "path": "60deg_v_bit_Whiteside_1550.fctb"
+    }
+  ],
+  "version": 1
+}

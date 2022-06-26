@@ -1,6 +1,5 @@
 #FreeCad bit files 
 *.ftcb
-ToolBits/
 
 # Byte-compiled / optimized / DLL files
 __pycache__/

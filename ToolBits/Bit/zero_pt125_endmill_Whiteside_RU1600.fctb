@@ -1,0 +1,17 @@
+{
+  "version": 2,
+  "name": "0.125 Endmill Whiteside RU1600",
+  "shape": "endmill.fcstd",
+  "parameter": {
+    "Chipload": "0.003 in",
+    "CuttingEdgeHeight": "0.5 ",
+    "Diameter": "0.125 in ",
+    "Flutes": "2",
+    "Length": "2 in ",
+    "Material": "HSS",
+    "ShankDiameter": "0.25 in "
+  },
+  "attribute": {
+    "vendor": "Whiteside"
+  }
+}
