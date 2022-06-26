@@ -1,42 +1,42 @@
-Vendor,Part Number,Shape,Chipload PER FLUTE,Cutting Edge Height,Diameter,Flutes,Length,Material,Shank Diameter,Cutting Edge Angle
-Whiteside,RU1600,Endmill,0.003,0.5,0.125,2,2,SC,0.25,
-Whiteside,RU1800,Endmill,0.003,0.75,0.1875,2,2.5,SC,0.25,
-Whiteside,RU2075,Endmill,0.004,0.75,0.25,2,2.5,SC,0.25,
-Whiteside,RD1600,Endmill,0.003,0.5,0.125,2,2,SC,0.25,
-Whiteside,RD1800,Endmill,0.003,0.75,0.1875,2,2.5,SC,0.25,
-Whiteside,RD2075,Endmill,0.004,0.75,0.25,2,2.5,SC,0.25,
-Whiteside,RU1800RN,Ball Nose Spiral,0.003,0.75,0.1875,2,2.5,SC,0.25,
-Whiteside,RU2075RN,Ball Nose Spiral,0.004,0.75,0.25,2,2.5,SC,0.25,
-Whiteside,SC64,Tapered Ball Nose,0.002,1,"1/32""R / 11° included",4,2.5,SC,0.25,
-Whiteside,SC66,Tapered Ball Nose,0.002,1,"1/16""R / 7° included",4,2.5,SC,0.25,
-Whiteside,RU2075CN,Cove Nose Spiral,0.004,0.75,0.75,2,2.5,SC,0.25,
-Whiteside,1500,v-bit,0.003,0.125,0.25,2,1.5,SC,0.25,90
-Whiteside,1502,v-bit,0.003,0.25,0.5,2,2,SC,0.25,90
-Whiteside,1541,v-bit,0.002,0.218,0.25,3,2,SC,0.25,60
-Whiteside,1550,v-bit,0.003,0.218,0.5,2,2,SC,0.25,60
-Whiteside,SC75,45EngravingPENCIL,0.006,0.218,45°,1,2,SC,0.25,
-Whiteside,SC76,45EngravingFLAT,0.006,0.218,45°,1,2,SC,0.25,
-Whiteside,SC70,30EngravingPENCIL,0.006,0.218,30°,1,2,SC,0.25,
-Whiteside,SC71,30EngravingFLAT,0.006,0.218,30°,1,2,SC,0.25,
-Whiteside,SC54,15EngravingFLAT,0.003,0.75,15°,2,2.5,SC,0.25,
-Whiteside,SC55,15EngravingPOINT,0.003,0.75,15°,2,2.5,SC,0.25,
-Whiteside,SC39,Round Nose,0.003,0.25,0.125,2,2,SC,0.25,
-Whiteside,SC40,Round Nose,0.003,0.375,0.1875,2,2,SC,0.25,
-Whiteside,SC41,Round Nose,0.003,0.5,0.25,2,2,SC,0.25,
-Whiteside,1403,Round Nose,0.004,0.5,0.375,2,2,CT,0.25,
-Whiteside,1404,Round Nose,0.004,0.625,0.5,2,2.25,CT,0.25,
-Whiteside,1405,Round Nose,0.004,0.375,0.625,2,2,CT,0.25,
-Whiteside,1406,Round Nose,0.004,0.4375,0.75,2,2,CT,0.25,
-Whiteside,SC062,Flat Veining,0.003,0.1875,0.0625,1,1.5,SC,0.25,
-Whiteside,SC33,Flat Veining,0.003,0.25,0.125,2,2,SC,0.25,
-Whiteside,1370,Bowl and Tray,0.004,0.3125,0.4375,2,2.125,CT,0.25,
-Whiteside,1372,Bowl and Tray,0.004,0.625,0.75,2,2.375,CT,0.25,
-Whiteside,2050,Plunge Roundover,0.002,0.25,0.125,2,1.75,CT,0.25,
-Whiteside,2051,Plunge Roundover,0.003,0.125,0.25,2,1.75,CT,0.25,
-Whiteside,2052,Plunge Roundover,0.003,0.375,0.25,2,1.875,CT,0.25,
-Whiteside,SC50,Carving Liner,0.002,0.5,22° Included,1,2.5,SC,0.25,
-Whiteside,1568,Pointed Roundover,0.003,0.25,0.25,2,2,CT,0.25,
-Whiteside,1570,Pointed Roundover,0.003,0.375,0.375,2,2,CT,0.25,
-Whiteside,1572,Pointed Roundover,0.003,0.5,0.5,2,2,CT,0.25,
-Whiteside,1574,Pointed Roundover,0.003,0.625,0.75,2,2,CT,0.25,
-Whiteside,6210,Surfacing Bit,0.002,0.25,1,3,1.625,CT,0.25,
+Vendor,Part Number,Shape,Chipload PER FLUTE,Chipload PER FLUTE Units,Cutting Edge Height,Cutting Edge Height Units,Diameter,Diameter Units,Flutes,Length,Length Units,Material,Shank Diameter,Shank Diameter Units,Cutting Edge Angle,Cutting Edge Angle Units
+Whiteside,RU1600,Endmill,0.003,in,0.5,in,0.125,in,2,2,in,SC,0.25,in,,deg
+Whiteside,RU1800,Endmill,0.003,in,0.75,in,0.1875,in,2,2.5,in,SC,0.25,in,,deg
+Whiteside,RU2075,Endmill,0.004,in,0.75,in,0.25,in,2,2.5,in,SC,0.25,in,,deg
+Whiteside,RD1600,Endmill,0.003,in,0.5,in,0.125,in,2,2,in,SC,0.25,in,,deg
+Whiteside,RD1800,Endmill,0.003,in,0.75,in,0.1875,in,2,2.5,in,SC,0.25,in,,deg
+Whiteside,RD2075,Endmill,0.004,in,0.75,in,0.25,in,2,2.5,in,SC,0.25,in,,deg
+Whiteside,RU1800RN,Ball Nose Spiral,0.003,in,0.75,in,0.1875,in,2,2.5,in,SC,0.25,in,,deg
+Whiteside,RU2075RN,Ball Nose Spiral,0.004,in,0.75,in,0.25,in,2,2.5,in,SC,0.25,in,,deg
+Whiteside,SC64,Tapered Ball Nose,0.002,in,1,in,"1/32""R / 11° included",in,4,2.5,in,SC,0.25,in,,deg
+Whiteside,SC66,Tapered Ball Nose,0.002,in,1,in,"1/16""R / 7° included",in,4,2.5,in,SC,0.25,in,,deg
+Whiteside,RU2075CN,Cove Nose Spiral,0.004,in,0.75,in,0.75,in,2,2.5,in,SC,0.25,in,,deg
+Whiteside,1500,V-bit,0.003,in,0.125,in,0.25,in,2,1.5,in,SC,0.25,in,90,deg
+Whiteside,1502,V-bit,0.003,in,0.25,in,0.5,in,2,2,in,SC,0.25,in,90,deg
+Whiteside,1541,V-bit,0.002,in,0.218,in,0.25,in,3,2,in,SC,0.25,in,60,deg
+Whiteside,1550,V-bit,0.003,in,0.218,in,0.5,in,2,2,in,SC,0.25,in,60,deg
+Whiteside,SC75,45EngravingPENCIL,0.006,in,0.218,in,45°,in,1,2,in,SC,0.25,in,,deg
+Whiteside,SC76,45EngravingFLAT,0.006,in,0.218,in,45°,in,1,2,in,SC,0.25,in,,deg
+Whiteside,SC70,30EngravingPENCIL,0.006,in,0.218,in,30°,in,1,2,in,SC,0.25,in,,deg
+Whiteside,SC71,30EngravingFLAT,0.006,in,0.218,in,30°,in,1,2,in,SC,0.25,in,,deg
+Whiteside,SC54,15EngravingFLAT,0.003,in,0.75,in,15°,in,2,2.5,in,SC,0.25,in,,deg
+Whiteside,SC55,15EngravingPOINT,0.003,in,0.75,in,15°,in,2,2.5,in,SC,0.25,in,,deg
+Whiteside,SC39,Round Nose,0.003,in,0.25,in,0.125,in,2,2,in,SC,0.25,in,,deg
+Whiteside,SC40,Round Nose,0.003,in,0.375,in,0.1875,in,2,2,in,SC,0.25,in,,deg
+Whiteside,SC41,Round Nose,0.003,in,0.5,in,0.25,in,2,2,in,SC,0.25,in,,deg
+Whiteside,1403,Round Nose,0.004,in,0.5,in,0.375,in,2,2,in,CT,0.25,in,,deg
+Whiteside,1404,Round Nose,0.004,in,0.625,in,0.5,in,2,2.25,in,CT,0.25,in,,deg
+Whiteside,1405,Round Nose,0.004,in,0.375,in,0.625,in,2,2,in,CT,0.25,in,,deg
+Whiteside,1406,Round Nose,0.004,in,0.4375,in,0.75,in,2,2,in,CT,0.25,in,,deg
+Whiteside,SC062,Flat Veining,0.003,in,0.1875,in,0.0625,in,1,1.5,in,SC,0.25,in,,deg
+Whiteside,SC33,Flat Veining,0.003,in,0.25,in,0.125,in,2,2,in,SC,0.25,in,,deg
+Whiteside,1370,Bowl and Tray,0.004,in,0.3125,in,0.4375,in,2,2.125,in,CT,0.25,in,,deg
+Whiteside,1372,Bowl and Tray,0.004,in,0.625,in,0.75,in,2,2.375,in,CT,0.25,in,,deg
+Whiteside,2050,Plunge Roundover,0.002,in,0.25,in,0.125,in,2,1.75,in,CT,0.25,in,,deg
+Whiteside,2051,Plunge Roundover,0.003,in,0.125,in,0.25,in,2,1.75,in,CT,0.25,in,,deg
+Whiteside,2052,Plunge Roundover,0.003,in,0.375,in,0.25,in,2,1.875,in,CT,0.25,in,,deg
+Whiteside,SC50,Carving Liner,0.002,in,0.5,in,22° Included,in,1,2.5,in,SC,0.25,in,,deg
+Whiteside,1568,Pointed Roundover,0.003,in,0.25,in,0.25,in,2,2,in,CT,0.25,in,,deg
+Whiteside,1570,Pointed Roundover,0.003,in,0.375,in,0.375,in,2,2,in,CT,0.25,in,,deg
+Whiteside,1572,Pointed Roundover,0.003,in,0.5,in,0.5,in,2,2,in,CT,0.25,in,,deg
+Whiteside,1574,Pointed Roundover,0.003,in,0.625,in,0.75,in,2,2,in,CT,0.25,in,,deg
+Whiteside,6210,Surfacing Bit,0.002,in,0.25,in,1,in,3,1.625,in,CT,0.25,in,,deg

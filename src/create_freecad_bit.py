@@ -34,11 +34,19 @@ def lower_first_line(iterator):
     '''
     return itertools.chain([next(iterator).lower()], iterator)
 
+def convert_real_to_safe_string(val):
+    ''' The function converts a number like 1.234 to 1_dp_234 that way it can be used in file names
+    '''
+    lcl_str=str(val)
+    return lcl_str.replace(".", "_dp_")
+
+
 def row_clean_up(row):
     ''' The function row_clean_up, replaces synonyms with well known values.
     '''
     if row['material'] == "SC":
-        row['material']="CARBIDE"
+        row['material']="HSS"
+#        row['material']="CARBIDE"
 
     shape=row['shape'].lower()
     if shape == "ball nose spiral":
@@ -49,23 +57,30 @@ def row_clean_up(row):
 def write_endmill(row):
     ''' The function write_endmill writes an endmill JSON file
     '''
-    bit_file_name=row['part number'] + "_endmill.ftcb"
+    bit_file_name= row['diameter'] + "_endmill_" \
+        + row['vendor'] + "_"  +row['part number']
+
+    #avoid decimal pts in filename
+    bit_file_name=bit_file_name.replace("0.","zero_pt")
+
+    bit_file_name=bit_file_name  + ".fctb"
+
     bit_file = open(bit_file_name,  mode="w", encoding="utf-8")
     bit_file.write("{\n")
-    bit_file.write("  \"version\": 2,\",\n")
-    bit_file.write("  \"name\": \""  + row['part number'] + "\",\n" )
+    bit_file.write("  \"version\": 2,\n")
+    bit_file.write("  \"name\": \""  +  row['diameter'] + " Endmill "  + row['vendor'] + " "  + row['part number'] + "\",\n" )
     bit_file.write("  \"shape\": \"endmill.fcstd\",\n")
     bit_file.write("  \"parameter\": {\n")
-    bit_file.write("    \"Chipload\": \"" + row['chipload per flute'] + " in\",\n")
-    bit_file.write("    \"CuttingEdgeHeight\": \"" + row['cutting edge height'] + " \\\"\",\n")
-    bit_file.write("    \"Diameter\": \"" + row['diameter'] + " \\\"\",\n")
+    bit_file.write("    \"Chipload\": \"" + row['chipload per flute'] +  " " + row['chipload per flute units'] + "\",\n")
+    bit_file.write("    \"CuttingEdgeHeight\": \"" + row['cutting edge height'] + " \",\n")
+    bit_file.write("    \"Diameter\": \"" + row['diameter'] + " " + row['diameter units'] + " \",\n")
     bit_file.write("    \"Flutes\": \"" + row['flutes'] + "\",\n")
-    bit_file.write("    \"Length\": \"" + row['length'] + " \\\"\",\n")
+    bit_file.write("    \"Length\": \"" + row['length'] + " " + row['length units'] + " \",\n")
     bit_file.write("    \"Material\": \"" + row['material'] + "\",\n")
-    bit_file.write("    \"ShankDiameter\": \"" + row['shank diameter'] + " \\\"\",\n")
-    bit_file.write("  }\n")
+    bit_file.write("    \"ShankDiameter\": \"" + row['shank diameter'] + " " + row['shank diameter units'] + " \"\n")
+    bit_file.write("  },\n")
     bit_file.write("  \"attribute\": {\n")
-    bit_file.write("    \"vendor\": \"" + row['vendor'] + "\",\n")
+    bit_file.write("    \"vendor\": \"" + row['vendor'] + "\"\n")
     bit_file.write("  }\n")
     bit_file.write("}\n")
     bit_file.close()
@@ -74,23 +89,32 @@ def write_endmill(row):
 def write_ballend(row):
     ''' The function write_ballend writes an ballend JSON file
     '''
-    bit_file_name=row['part number'] + "_ballend.ftcb"
+    bit_file_name=row['diameter'] + "_ballend_" \
+        + row['vendor'] + "_"  +row['part number']
+
+    #avoid decimal pts in filename
+    bit_file_name=bit_file_name.replace("0.","zero_pt")
+            
+    bit_file_name=bit_file_name  + ".fctb"
+            
+
+
     bit_file = open(bit_file_name,  mode="w", encoding="utf-8")
     bit_file.write("{\n")
-    bit_file.write("  \"version\": 2,\",\n")
-    bit_file.write("  \"name\": \""  + row['part number'] + "\",\n" )
+    bit_file.write("  \"version\": 2,\n")
+    bit_file.write("  \"name\": \""    + row['diameter'] +  " Ball endmill " + row['vendor'] + " " + row['part number'] + "\",\n" )
     bit_file.write("  \"shape\": \"ballend.fcstd\",\n" )
     bit_file.write("  \"parameter\": {\n")
-    bit_file.write("    \"Chipload\": \"" + row['chipload per flute'] + " in\",\n")
-    bit_file.write("    \"CuttingEdgeHeight\": \"" + row['cutting edge height'] + " \\\"\",\n")
-    bit_file.write("    \"Diameter\": \"" + row['diameter'] + " \\\"\",\n")
+    bit_file.write("    \"Chipload\": \"" + row['chipload per flute'] +  " " + row['chipload per flute units'] + "\",\n")
+    bit_file.write("    \"CuttingEdgeHeight\": \"" + row['cutting edge height'] +  " " + row['cutting edge height units'] + "\",\n")
+    bit_file.write("    \"Diameter\": \"" + row['diameter'] + " " + row['diameter units'] + "\",\n")
     bit_file.write("    \"Flutes\": \"" + row['flutes'] + "\",\n")
-    bit_file.write("    \"Length\": \"" + row['length'] + " \\\"\",\n")
+    bit_file.write("    \"Length\": \"" + row['length'] + " " + row['length units'] + "\",\n")
     bit_file.write("    \"Material\": \"" + row['material'] + "\",\n")
-    bit_file.write("    \"ShankDiameter\": \"" + row['shank diameter'] + " \\\"\",\n")
-    bit_file.write("  }\n")
+    bit_file.write("    \"ShankDiameter\": \"" + row['shank diameter'] + " " + row['shank diameter units'] + "\"\n")
+    bit_file.write("  },\n")
     bit_file.write("  \"attribute\": {\n")
-    bit_file.write("    \"vendor\": \"" + row['vendor'] + "\",\n")
+    bit_file.write("    \"vendor\": \"" + row['vendor'] + "\"\n")
     bit_file.write("  }\n")
     bit_file.write("}\n")
     bit_file.close()
@@ -99,24 +123,30 @@ def write_ballend(row):
 def write_v_bit(row):
     ''' The function write_v_bit writes an Vbit JSON file
     '''
-    bit_file_name=row['part number'] + "_v_bit.ftcb"
+    bit_file_name= row['cutting edge angle'] + "deg_v_bit_" + row['vendor'] + "_"  +row['part number']
+
+    #avoid decimal pts in filename
+    bit_file_name=bit_file_name.replace("0.","zero_pt")
+
+    bit_file_name=bit_file_name  + ".fctb"
+
     bit_file = open(bit_file_name,  mode="w", encoding="utf-8")
     bit_file.write("{\n")
-    bit_file.write("  \"version\": 2,\",\n")
-    bit_file.write("  \"name\": \""  + row['part number'] + "\",\n" )
+    bit_file.write("  \"version\": 2,\n")
+    bit_file.write("  \"name\": \"" + row['cutting edge angle'] + " deg v-bit " + row['vendor'] + " " + row['part number'] + "\",\n" )
     bit_file.write("  \"shape\": \"v-bit.fcstd\",\n" )
     bit_file.write("  \"parameter\": {\n")
-    bit_file.write("    \"Chipload\": \"" + row['chipload per flute'] + " in\",\n")
-    bit_file.write("    \"CuttingEdgeHeight\": \"" + row['cutting edge height'] + " \\\"\",\n")
+    bit_file.write("    \"Chipload\": \"" + row['chipload per flute'] +  " " + row['chipload per flute units'] + "\",\n")
+    bit_file.write("    \"CuttingEdgeHeight\": \"" + row['cutting edge height']  +  " " + row['cutting edge height units'] + " \",\n")
     bit_file.write("    \"CuttingEdgeAngle\": \"" + row['cutting edge angle'] + " \\u00b0\",\n")
-    bit_file.write("    \"Diameter\": \"" + row['diameter'] + " \\\"\",\n")
+    bit_file.write("    \"Diameter\": \"" + row['diameter'] + " " + row['diameter units'] + " \",\n")
     bit_file.write("    \"Flutes\": \"" + row['flutes'] + "\",\n")
-    bit_file.write("    \"Length\": \"" + row['length'] + " \\\"\",\n")
+    bit_file.write("    \"Length\": \"" + row['length'] + " " + row['length units'] + " \",\n")
     bit_file.write("    \"Material\": \"" + row['material'] + "\",\n")
-    bit_file.write("    \"ShankDiameter\": \"" + row['shank diameter'] + " \\\"\",\n")
-    bit_file.write("  }\n")
+    bit_file.write("    \"ShankDiameter\": \"" + row['shank diameter'] + " " + row['shank diameter units'] + " \"\n")
+    bit_file.write("  },\n")
     bit_file.write("  \"attribute\": {\n")
-    bit_file.write("    \"vendor\": \"" + row['vendor'] + "\",\n")
+    bit_file.write("    \"vendor\": \"" + row['vendor'] + "\"\n")
     bit_file.write("  }\n")
     bit_file.write("}\n")
     bit_file.close()
@@ -176,7 +206,7 @@ def make_toolbit_kit(lib_name,csv_file_path):
 
     # Create the library        
     os.chdir(library_path)
-    library_file_name=lib_name + ".ftcb"
+    library_file_name=lib_name + ".fctl"
     lib_file = open(library_file_name,  mode="w", encoding="utf-8")
     lib_file.write("{\n")
     lib_file.write("  \"tools\": [\n")
@@ -185,8 +215,8 @@ def make_toolbit_kit(lib_name,csv_file_path):
     elem_num=1
     for bit_name in bit_name_list:
         lib_file.write("    {\n")
-        lib_file.write("      \"nr=\":" + str(elem_num) + ",\n")
-        lib_file.write("      \"path=\": \"" + bit_name + "\"\n")
+        lib_file.write("      \"nr\": " + str(elem_num) + ",\n")
+        lib_file.write("      \"path\": \"" + bit_name + "\"\n")
         if elem_num < num_bits_written:
             lib_file.write("    },\n")
         else:
@@ -195,6 +225,7 @@ def make_toolbit_kit(lib_name,csv_file_path):
 
     lib_file.write("  ],\n")
     lib_file.write("  \"version\": 1\n")
+    lib_file.write("}\n")
     lib_file.close
 
 # Driver Code
